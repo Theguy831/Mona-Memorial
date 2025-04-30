@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Loving Memory of Natalie Trujillo</title>
+    <style>
+        body {
+            background-color: lavender;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f8;
+        }
+
+            header img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                display: block;
+                margin: 20px auto;
+            }
+
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery, .videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .interactive-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #6c63ff;
+            color: white;
+            font-size: 16px;
+        }
+
+            button:hover {
+                background: #574ed8;
+            }
+
+        .message-board {
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+            .message-board textarea {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+                font-size: 14px;
+            }
+
+            .message-board button {
+                background-color: #6c63ff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+
+                .message-board button:hover {
+                    background-color: #574ed8;
+                }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f4f4f8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>In Loving Memory of Natalie Trujillo</h1>
+            <h2>A Celebration of Life and Love</h2>
+            <img src="img/MonaMainPic.jpg" alt="Profile picture of Natalie Trujillo">
+        </header>
+        <main>
+
+            <section>
+                <h2>Music Player</h2>
+                <audio autoplay loop>
+                    <source src="Allfor.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </section>
+
+
+            <!-- Memorial Photos Section -->
+            <section>
+                <h2>Cherished Memories</h2>
+                <p>Share your favorite memories of Natalie with photographs.</p>
+                <input type="file" accept="image/*" id="photo-upload">
+                <button>Upload Photos</button>
+                <div class="gallery">
+                    <!-- Uploaded photos will be displayed here -->
+                </div>
+            </section>
+            <!-- Memorial Videos Section -->
+            <section>
+                <h2>Memorial Videos</h2>
+                <p>Watch and share memories captured in video.</p>
+                <input type="file" accept="video/*" id="video-upload">
+                <button>Upload Videos</button>
+                <div class="videos">
+                    <!-- Embedded video players will be displayed here -->
+                </div>
+            </section>
+            <!-- Interactive Buttons Section -->
+            <section class="interactive-buttons">
+                <button onclick="lightCandle()">Light a Candle</button>
+                <button onclick="releaseDove()">Release a Dove</button>
+            </section>
+            <!-- Message Board Section -->
+            <section class="message-board">
+                <h2>Messages of Love and Support</h2>
+                <p>Share your thoughts, prayers, and memories with us.</p>
+                <textarea placeholder="Write your message here..." rows="5"></textarea>
+                <button>Submit</button>
+                <div id="messages">
+                    <!-- Submitted messages will appear here -->
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Memorial Page for Natalie Trujillo</p>
+        </footer>
+    </div>
+    <script>
+    function lightCandle() {
+      alert("A virtual candle has been lit in Natalie's memory.");
+    }
+    function releaseDove() {
+      alert("Doves have been released, bringing peace and love.");
+    }
+    const messageButton = document.querySelector(".message-board button");
+    messageButton.addEventListener("click", () => {
+      const textarea = document.querySelector(".message-board textarea");
+      const messagesDiv = document.getElementById("messages");
+      const newMessage = document.createElement("p");
+      newMessage.textContent = textarea.value;
+      messagesDiv.appendChild(newMessage);
+      textarea.value = ""; // Clear the textarea after submission
+    });
+    </script>
+</body>
+</html>
