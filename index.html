@@ -18,6 +18,67 @@
             margin: 0 auto;
             padding: 20px;
         }
+		
+		.music-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 100%;
+}
+		
+		.virtual-candle {
+    text-align: center;
+    margin: 20px auto;
+}
+
+#candle-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#candle-form input, #candle-form textarea {
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+}
+
+#candle-space {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers candles horizontally */
+    gap: 15px; /* Adds space between them */
+}
+
+.candle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f9f9f9; /* Light background */
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+}
+
+
+.candle-img {
+    width: 100px; /* Bigger candle */
+    height: auto;
+}
+
+.candle-container p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+
+
+
 
         header {
             text-align: center;
@@ -141,43 +202,58 @@
                 <div class="videos">
                     <!-- Embedded video players will be displayed here -->
                 </div>
-            </section>
-            <!-- Interactive Buttons Section -->
-            <section class="interactive-buttons">
-                <button onclick="lightCandle()">Light a Candle</button>
-                <button onclick="releaseDove()">Release a Dove</button>
-            </section>
-            <!-- Message Board Section -->
-            <section class="message-board">
-                <h2>Messages of Love and Support</h2>
-                <p>Share your thoughts, prayers, and memories with us.</p>
-                <textarea placeholder="Write your message here..." rows="5"></textarea>
-                <button>Submit</button>
-                <div id="messages">
-                    <!-- Submitted messages will appear here -->
-                </div>
-            </section>
-        </main>
+				
+				<section class="virtual-candle">
+    <h2>Light a Candle in Memory</h2>
+    <p>Enter your name and a message before lighting a candle.</p>
+    <form id="candle-form">
+        <input type="text" id="user-name" placeholder="Your Name" required>
+        <textarea id="user-message" placeholder="Write a message..." required></textarea>
+        <button type="submit">Light Candle</button>
+    </form>
+    <div id="candle-space"></div>
+</section>
+
+
+				
+          
+       
         <footer>
             <p>&copy; 2025 Memorial Page for Natalie Trujillo</p>
         </footer>
     </div>
     <script>
-    function lightCandle() {
-      alert("A virtual candle has been lit in Natalie's memory.");
-    }
-    function releaseDove() {
-      alert("Doves have been released, bringing peace and love.");
-    }
-    const messageButton = document.querySelector(".message-board button");
-    messageButton.addEventListener("click", () => {
-      const textarea = document.querySelector(".message-board textarea");
-      const messagesDiv = document.getElementById("messages");
-      const newMessage = document.createElement("p");
-      newMessage.textContent = textarea.value;
-      messagesDiv.appendChild(newMessage);
-      textarea.value = ""; // Clear the textarea after submission
-    });
+		
+		document.getElementById("candle-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent page reload
+
+    const userName = document.getElementById("user-name").value;
+    const userMessage = document.getElementById("user-message").value;
+    const candleSpace = document.getElementById("candle-space");
+
+    // Create a card container for each candle
+    const candleContainer = document.createElement("div");
+    candleContainer.classList.add("candle-container");
+
+    // Create the candle image
+    const candleImg = document.createElement("img");
+    candleImg.src = "img/candle.gif"; // Ensure you have a candle GIF
+    candleImg.alt = "Animated virtual candle";
+    candleImg.classList.add("candle-img");
+
+    // Create a text element for the user’s tribute
+    const candleText = document.createElement("p");
+    candleText.innerHTML = `<strong>${userName}</strong><br>${userMessage}`;
+
+    // Append elements inside the card
+    candleContainer.appendChild(candleImg);
+    candleContainer.appendChild(candleText);
+    candleSpace.appendChild(candleContainer);
+
+    // Clear form fields after submission
+    document.getElementById("candle-form").reset();
+});
+
     </script>
 </body>
 </html>
