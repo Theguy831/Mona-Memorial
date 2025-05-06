@@ -5,19 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>In Loving Memory of Natalie Trujillo</title>
     <style>
-        body {
-            background-color: lavender;
-            font-family: Arial, sans-serif;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
+        /* General site theme */
+body {
+    background-color: #C8A2C8; /* Soft plum-toned background */
+    color: #370029; /* Dark plum text */
+    font-family: Arial, sans-serif;
+}
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
+		
+		
+		/* Text styling */
+h2, h1 {
+    color: #670D45; /* Dark plum headings */
+}
+
+p {
+    color: #370029; /* Deep plum for contrast */
+}
+		
+		
 		
 		.music-player {
     display: flex;
@@ -114,19 +125,33 @@
             gap: 10px;
         }
 
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background: #6c63ff;
-            color: white;
-            font-size: 16px;
-        }
+        /* Styled Buttons */
+button {
+    background-color: #670D45; /* Deep plum */
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+		
+		
+		/* Card Styling */
+.candle-container {
+    background: #D3A6D1; /* Soft plum card background */
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(103, 13, 69, 0.5); /* Plum shadow */
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+}
+		
 
-            button:hover {
-                background: #574ed8;
-            }
+button:hover {
+    background-color: #9B5094; /* Lighter plum hover effect */
+}
 
         .message-board {
             margin: 20px auto;
