@@ -78,7 +78,7 @@ p {
 
 
 .candle-img {
-    width: 100px; /* Bigger candle */
+    width: 150px; /* Bigger candle */
     height: auto;
 }
 
@@ -92,14 +92,16 @@ p {
 
 
         header {
-            text-align: center;
-            padding: 20px;
-            background-color: #f4f4f8;
-        }
+    background-color: rgba(255, 255, 255, 0.2); /* Light transparent effect */
+    backdrop-filter: blur(5px); /* Adds a subtle blur for elegance */
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
 
             header img {
-                width: 150px;
-                height: 150px;
+                width: 200px;
+                height: 200px;
                 border-radius: 50%;
                 display: block;
                 margin: 20px auto;
@@ -235,6 +237,8 @@ button:hover {
         <input type="text" id="user-name" placeholder="Your Name" required>
         <textarea id="user-message" placeholder="Write a message..." required></textarea>
         <button type="submit">Light Candle</button>
+		<p>Total Candles Lit: <span id="candle-count">0</span></p>
+
     </form>
     <div id="candle-space"></div>
 </section>
@@ -256,28 +260,37 @@ button:hover {
     const userMessage = document.getElementById("user-message").value;
     const candleSpace = document.getElementById("candle-space");
 
+    // Get current date and time
+    const now = new Date();
+    const formattedDate = now.toLocaleString();
+
     // Create a card container for each candle
     const candleContainer = document.createElement("div");
     candleContainer.classList.add("candle-container");
 
     // Create the candle image
     const candleImg = document.createElement("img");
-    candleImg.src = "img/candle.gif"; // Ensure you have a candle GIF
+    candleImg.src = "img/candle.gif"; // Ensure this GIF exists
     candleImg.alt = "Animated virtual candle";
     candleImg.classList.add("candle-img");
 
     // Create a text element for the user’s tribute
     const candleText = document.createElement("p");
-    candleText.innerHTML = `<strong>${userName}</strong><br>${userMessage}`;
+    candleText.innerHTML = `<strong>${userName}</strong><br><small>${formattedDate}</small><br><br>${userMessage}`;
 
     // Append elements inside the card
     candleContainer.appendChild(candleImg);
     candleContainer.appendChild(candleText);
     candleSpace.appendChild(candleContainer);
 
+    // Update the candle count
+    const candleCountElement = document.getElementById("candle-count");
+    candleCountElement.textContent = parseInt(candleCountElement.textContent) + 1;
+
     // Clear form fields after submission
     document.getElementById("candle-form").reset();
 });
+
 
     </script>
 </body>
