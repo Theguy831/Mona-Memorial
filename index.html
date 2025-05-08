@@ -88,7 +88,51 @@ p {
 }
 
 
+/* Top Navigation Bar */		
+		.top-nav {
+    background-color: rgba(103, 13, 69, 0.8); /* Plum-colored background */
+    backdrop-filter: blur(5px); /* Soft blur effect */
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
 
+.top-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.top-nav li {
+    display: inline;
+}
+
+.top-nav a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.top-nav a:hover {
+    background-color: #9B5094; /* Lighter plum hover effect */
+}
+
+		
+		
+		
+		
+		
 
 
         header {
@@ -195,6 +239,13 @@ button:hover {
 </head>
 <body>
     <div class="container">
+		<nav class="top-nav">
+    <ul>
+        <li><a href="#feedback">Feedback</a></li>
+        <li><a href="#shop">Shop</a></li>
+		<li><a href="#Register">Register</a></li>
+    </ul>
+</nav>
         <header>
             <h1>In Loving Memory of Natalie Trujillo</h1>
             <h2>A Celebration of Life and Love</h2>
@@ -232,7 +283,7 @@ button:hover {
 				</section>
 				
 				<section class="virtual-candle">
-    <h2>Light a Candle in Memory</h2>
+    <h2>Light a Candle in Memory of Natalie</h2>
     <p>Enter your name and a message before lighting a candle.</p>
     <form id="candle-form">
         <input type="text" id="user-name" placeholder="Your Name" required>
@@ -249,7 +300,7 @@ button:hover {
           
        
         <footer>
-            <p>&copy; 2025 Memorial Page for Natalie Trujillo</p>
+          <p>&copy; 2025 Memorial Page for Natalie Trujillo</p>
         </footer>
     </div>
     <script>
